@@ -1,0 +1,39 @@
+﻿@model Orchard.CustomerIQ.ViewModels.CustomersIndexVM
+@{
+    //Script.Require("ShapesBase");
+    //Layout.Title = T("Customers").ToString();
+}
+
+<h2>@("Welcome!")</h2>
+<p>@("Following is the list of existing CustomerIQ customers")</p>
+<br>
+
+<article class="">
+    <fieldset>
+        <table cellpadding="10" border="1" cellspacing="20" summary="@("This is a table of the customers")">
+
+            <thead>
+                <tr>
+                    <th>@("First Name")&nbsp;&nbsp;&nbsp;&nbsp;</th>
+                    <th>@("Last Name")&nbsp;&nbsp;&nbsp;&nbsp;</th>
+                    <th>@("Email Address")&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+                </tr>
+            </thead>
+            @foreach (var customer in Model.Customers)
+            {
+                <tr>
+                    <td>@(customer.FirstName)</td>
+                    <td>@(customer.LastName)</td>
+                    <td>@(customer.Email)</td>
+                </tr>
+            }
+        </table>
+    </fieldset>
+
+    <footer class="commands">
+        <ul>
+            <li class="align left"><a href="/Orchard/CustomerIQ">@("Go back to Login screen")</a></li>
+            
+        </ul>
+    </footer>
+</article>

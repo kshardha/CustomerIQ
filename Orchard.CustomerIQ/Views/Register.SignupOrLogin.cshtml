@@ -1,0 +1,12 @@
+﻿<h2>@("Welcome!")</h2>
+<p>@("Are you a returning customer or a new customer?")</p>
+<br>
+
+<article>
+    
+    <ul style="border:double">
+        <li>-><a href="@Url.Action("Login", "Register", new { area = "Orchard.CustomerIQ" })">I am a <strong>returning customer</strong> and already have an account</a></li>
+        <li></li>
+        <li>-><a href="@Url.Action("Signup", "Register", new { area = "Orchard.CustomerIQ" })">I am a <strong>new customer</strong></a></li>
+    </ul>
+</article>

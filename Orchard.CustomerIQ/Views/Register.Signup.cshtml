@@ -1,0 +1,69 @@
+﻿@using Orchard.CustomerIQ.ViewModels
+@{
+    var signup = (SignupViewModel)Model.Signup;
+        
+}
+
+<h2>@("New customer")</h2>
+<br />
+<p>@("Please fill out the form below")</p>
+<br />
+
+@Html.ValidationSummary()
+
+@using (Html.BeginFormAntiForgeryPost(Url.Action("Signup", "Register", new { area = "Orchard.CustomerIQ" })))
+{
+    <article class="form">
+        <fieldset>
+            <ul>
+                <li>
+                    <div class="field-label"><label for="firstname">@("FirstName:")</label></div>
+                    <div class="field-editor">@Html.EditorFor(m => signup.FirstName)</div>
+                </li>
+                <li>
+                    <div class="field-label"><label for="lastname">@("LastName:")</label></div>
+                    <div class="field-editor">@Html.EditorFor(m => signup.LastName)</div>
+                </li>
+            </ul>
+        </fieldset>
+
+        <fieldset>
+            <ul>
+                <li>
+                    <div class="field-label"><label for="emailaddress">@("Email Address:")</label></div>
+                    <div class="field-editor">@Html.EditorFor(m => signup.Email)</div>
+                </li>
+                <li>
+                    <div class="field-label"><label for="password">@("Password:")</label></div>
+                    <div class="field-editor">@Html.EditorFor(m => signup.Password)</div>
+                </li>
+                <li>
+                    <div class="field-label"><label for="repeatpassword">@("Repeat Password:")</label></div>
+                    <div class="field-editor">@Html.EditorFor(m => signup.RepeatPassword)</div>
+                </li>
+            </ul>
+        </fieldset>
+
+        <fieldset>
+            <ul>
+                <li>
+                    <div class="checkbox-and-label">
+                        <div class="checkbox">@Html.CheckBoxFor(m => signup.AcceptTerms)
+                            <label for="@Html.FieldIdFor(m => signup.AcceptTerms)">
+                                @Html.Raw("I have read and accept the <a href=\"{0}\" target=\"_blank\">Terms and Conditions</a>")
+                            </label>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </fieldset>
+
+        
+        <footer class="commands">
+            <ul>                
+		<li class="align left"><a href="/Orchard/CustomerIQ">@("Cancel")</a></li>
+		<li class="align right"><button type="submit">@("Done")</button></li>
+            </ul>
+        </footer>
+    </article>
+}

@@ -1,0 +1,42 @@
+﻿@model Orchard.CustomerIQ.ViewModels.CustomersIndexVM
+@{
+    //Script.Require("ShapesBase");
+    //Layout.Title = T("Customers").ToString();
+}
+
+@using (Html.BeginForm("Register", "CustomerList", FormMethod.Get))
+{
+    <fieldset class="bulk-actions">
+        <label for="search">@("Search:")</label>
+        @Html.TextBoxFor(m => m.Search.Expression)
+        <button type="submit">@("Search")</button>
+        <a href="@Url.Action("Index")">@("Clear")</a>
+    </fieldset>
+}
+<fieldset>
+    <table class="items" summary="@("This is a table of the customers in your application")">
+        <colgroup>
+            <col id="Col1" />
+            <col id="Col2" />
+            <col id="Col3" />
+            <col id="Col4" />
+        </colgroup>
+        <thead>
+            <tr>
+                <th scope="col">&nbsp;&darr;</th>
+                <th scope="col">@("FirstName")</th>
+                <th scope="col">@("LastName")</th>
+                <th scope="col">@("Email")</th>
+            </tr>
+        </thead>
+        @foreach (var customer in Model.Customers)
+        {
+            <tr>
+                <td>@customer.Id</td>
+                <td>@customer.FirstName</td>
+                <td>@customer.LastName</td>
+                <td>@customer.Email</td>
+            </tr>
+        }
+    </table>
+</fieldset>

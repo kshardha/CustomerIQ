@@ -1,0 +1,9 @@
+﻿Name: Orchard.CustomerIQ
+AntiForgery: enabled
+Author: Kapil Shardha
+Website: http://www.simulationiq.com
+Version: 1.0
+OrchardVersion: 1.8
+Description: Customer management module for CustomerIQ
+Category: Customer Management
+Dependencies: Orchard.Users

@@ -1,0 +1,39 @@
+﻿@using Orchard.CustomerIQ.ViewModels
+@{
+    var login = (LoginViewModel)Model.Login;    
+}
+
+<h2>@("Returning customer")</h2>
+<br />
+<p>@("Please login using the form below")</p>
+<br />
+
+@Html.ValidationSummary()
+
+@using (Html.BeginFormAntiForgeryPost(Url.Action("Login", "Register", new { area = "Orchard.CustomerIQ" })))
+{
+
+    <article class="form">
+
+        <fieldset>
+            <ul>
+                <li>
+                    <div class="field-label"><label for="EmailAddress">@("EmailAddress:")</label></div>
+                    <div class="field-editor">@Html.EditorFor(m => login.Email)</div>
+                </li>
+                <li>
+                    <div class="field-label"><label for="Password">@("Password:")</label></div>
+                    <div class="field-editor">@Html.EditorFor(m => login.Password)</div>
+                </li>
+            </ul>
+        </fieldset>
+
+                <footer class="commands">
+            <ul>
+                <li class="align left"><a href="/Orchard/CustomerIQ">@("Cancel")</a></li>
+                <li class="align right"><button type="submit">@("Next")</button></li>
+            </ul>
+        </footer>
+
+    </article>
+}
